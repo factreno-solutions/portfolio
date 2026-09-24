@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* استدعاء الخطوط المطلوبة */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700&display=swap');
+
+@theme {
+  /* ألوان Primary المستخرجة */
+  --color-primary-50: #E6F6FC;
+  --color-primary-100: #B3E5F7;
+  --color-primary-300: #4DC3F1;
+  --color-primary-500: #00A3E0;
+  --color-primary-700: #007CAE; /*[cite: 15] */
+  --color-primary-900: #004866; /*[cite: 16] */
+  
+  /* ألوان الخلفية والنصوص */
+  --color-bg-primary: #FFFFFF; /*[cite: 17] */
+  --color-bg-secondary: #F8FAFC; /*[cite: 18] */
+  --color-text-dark: #1E293B; /*[cite: 19] */
+
+  /* عائلة الخطوط */
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* فئات مخصصة لتطابق نصوص فيجما 100% */
+@layer utilities {
+  .text-h1 {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-h2 {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+  
+  .text-body-large {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  
+  .text-body-regular {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  
+  .text-body-small {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
