@@ -8,6 +8,9 @@ import Portfolio from './sections/Portfolio';
 import FreeConsultation from './sections/FreeConsultation';
 import Blog from './sections/Blog';
 import Footer from './sections/Footer';
+import Contact from './pages/Contact';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ArticleDetails from './pages/ArticleDetails';
 
 function App() {
   const { i18n } = useTranslation();
@@ -21,16 +24,33 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <AboutUs />
-        <Services />
-        <Portfolio />
-        <FreeConsultation />
-        <Blog />
-      </main>
-      <Footer />
+  
+   <BrowserRouter>
+    <Navbar />
+    
+    <main>
+      <Routes>
+        {/* مسار الصفحة الرئيسية: يضم كل الأقسام */}
+        <Route 
+          path="/" 
+          element={
+            <>
+              <Hero />
+              <AboutUs />
+              <Services />
+              <Portfolio />
+              <FreeConsultation />
+              <Blog />
+            </>
+          } 
+        />
+<Route path="/blog/:id" element={<ArticleDetails />} />        {/* مسار صفحة التواصل فقط */}
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </main>
+
+    <Footer />
+  </BrowserRouter>
     </>
   );
 }
