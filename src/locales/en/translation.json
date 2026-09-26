@@ -5,7 +5,8 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Fast Contact",
+    "pageContact":"Contact"
   },
   "hero": {
     "badge": "Modern Software Studio",
@@ -113,18 +114,21 @@
     "readMore": "Read Article",
     "articles": [
       {
+        "id": 1,
         "category": "Design",
         "title": "SaaS Design Trends in 2026",
         "description": "Delving into visual minimalism, clean curves, and the utility of high contrast typography for SaaS.",
         "date": "May 14, 2026"
       },
       {
+        "id": 2,
         "category": "Engineering",
         "title": "The Power of Edge Telemetry",
         "description": "How micro-frontends and decentralized frameworks reduce operational lag in web products.",
         "date": "May 08, 2026"
       },
       {
+        "id": 3,
         "category": "AI",
         "title": "Custom LLM Integrations",
         "description": "A guide to building custom context pipelines without oversubscribing standard compute instances.",

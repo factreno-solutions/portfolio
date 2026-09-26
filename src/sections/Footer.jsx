@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { MessageCircle, User, Mail } from 'lucide-react';
-import logo from '../assets/Logo-Factreno.svg';
+import logo from '../assets/logo-removebg-preview.png';
 
 export default function Footer() {
   const { t } = useTranslation();

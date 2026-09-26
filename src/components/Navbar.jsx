@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/Logo-Factreno.svg';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -13,14 +14,34 @@ export default function Navbar() {
     i18n.changeLanguage(newLang);
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    // التحقق مما إذا كان الرابط يحتوي على علامة #
+    if (location.hash) {
+      const sectionId = location.hash.replace('#', '');
+
+      // ننتظر 100 ملي ثانية حتى يتم رسم الصفحة بالكامل ثم ننزل للقسم
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // إذا كان الانتقال لصفحة جديدة عادية، نصعد لأعلى الصفحة
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]); // يتم تشغيل هذا الكود في كل مرة يتغير فيها الرابط
   // مصفوفة الروابط
   const navLinks = [
-    { name: t('nav.home'), href: '#home', active: true },
-    { name: t('nav.about'), href: '#about', active: false },
-    { name: t('nav.services'), href: '#services', active: false },
-    { name: t('nav.portfolio'), href: '#portfolio', active: false },
-    { name: t('nav.blog'), href: '#blog', active: false },
-    { name: t('nav.contact'), href: '#contact', active: false },
+    { name: t('nav.home'), href: '/#home' },
+    { name: t('nav.about'), href: '/#about' },
+    { name: t('nav.services'), href: '/#services' },
+    { name: t('nav.portfolio'), href: '/#portfolio' },
+    { name: t('nav.blog'), href: '/#blog' },
+    { name: t('nav.contact'), href: '/#contact' },
+    {name:  t('nav.pageContact'),href:"/contact"},
   ];
 
   // إعدادات حركة دخول النافبار عند فتح الموقع
@@ -93,21 +114,27 @@ export default function Navbar() {
           </motion.a>
 
           {/* روابط التنقل (تختفي في الشاشات الصغيرة) */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                variants={itemVariants}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.96 }}
-                className={`text-sm font-medium transition-colors hover:text-primary-500 ${
-                  link.active ? 'text-primary-500' : 'text-text-dark'
-                }`}
-              >
-                {link.name}
-              </motion.a>
-            ))}
+          <div className="hidden items-center gap-6 md:flex">
+            {navLinks.map((link, index) => {
+              const currentPath = location.pathname + location.hash;
+              const isActive =
+                currentPath === link.href ||
+                (currentPath === '/' && link.href === '/#home');
+
+              return (
+                <motion.div key={index} variants={itemVariants} whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }}>
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-sm font-medium transition-colors hover:text-primary-500 ${
+                      isActive ? 'font-bold text-primary-500' : 'text-text-dark'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.div variants={itemVariants} className="flex shrink-0 items-center gap-1.5 sm:gap-2">
@@ -151,21 +178,28 @@ export default function Navbar() {
               animate="visible"
               exit="exit"
               variants={mobileMenuVariants}
-              className="mt-2 flex flex-col gap-1 rounded-2xl border border-bg-secondary bg-bg-primary p-4 shadow-sm md:hidden overflow-hidden"
+              className="mt-2 flex flex-col gap-1 overflow-hidden rounded-2xl border border-bg-secondary bg-bg-primary p-4 shadow-sm md:hidden"
             >
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  variants={mobileItemVariants}
-                  onClick={() => setIsOpen(false)}
-                  className={`rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-primary-50 hover:text-primary-500 ${
-                    link.active ? 'text-primary-500' : 'text-text-dark'
-                  }`}
-                >
-                  {link.name}
-                </motion.a>
-              ))}
+              {navLinks.map((link, index) => {
+                const currentPath = location.pathname + location.hash;
+                const isActive =
+                  currentPath === link.href ||
+                  (currentPath === '/' && link.href === '/#home');
+
+                return (
+                  <motion.div key={index} variants={mobileItemVariants}>
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-primary-50 hover:text-primary-500 ${
+                        isActive ? 'font-bold text-primary-500' : 'text-text-dark'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </motion.div>
           )}
         </AnimatePresence>
