@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Blog() {
   const { t } = useTranslation();
@@ -39,13 +40,13 @@ export default function Blog() {
                     {article.description}
                   </p>
 
-                  <a
-                    href="#"
+                  <Link
+                    to={`/blog/${article.id}`}
                     className="mt-5 inline-flex items-center gap-1.5 text-body-regular font-semibold text-primary-500 hover:text-primary-700"
                   >
                     {t('blog.readMore')}
                     <ArrowRight size={16} className="rtl:-scale-x-100" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
