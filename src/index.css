@@ -1,66 +1,84 @@
-@import "tailwindcss";
+/* استدعاء الخطوط المطلوبة: Sora/Inter للإنجليزي، Tajawal للعربي */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700&family=Tajawal:wght@400;500;700;800&display=swap');
 
-/* استدعاء الخطوط المطلوبة */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@600;700&display=swap');
+@import 'tailwindcss';
 
 @theme {
   /* ألوان Primary المستخرجة */
-  --color-primary-50: #E6F6FC;
-  --color-primary-100: #B3E5F7;
-  --color-primary-300: #4DC3F1;
-  --color-primary-500: #00A3E0;
-  --color-primary-700: #007CAE; /*[cite: 15] */
+  --color-primary-50: #e6f6fc;
+  --color-primary-100: #b3e5f7;
+  --color-primary-300: #4dc3f1;
+  --color-primary-500: #00a3e0;
+  --color-primary-700: #007cae; /*[cite: 15] */
   --color-primary-900: #004866; /*[cite: 16] */
-  
-  /* ألوان الخلفية والنصوص */
-  --color-bg-primary: #FFFFFF; /*[cite: 17] */
-  --color-bg-secondary: #F8FAFC; /*[cite: 18] */
-  --color-text-dark: #1E293B; /*[cite: 19] */
 
-  /* عائلة الخطوط */
+  /* ألوان الخلفية والنصوص */
+  --color-bg-primary: #ffffff; /*[cite: 17] */
+  --color-bg-secondary: #f8fafc; /*[cite: 18] */
+  --color-text-dark: #1e293b; /*[cite: 19] */
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  /* عائلة الخطوط - القيم الافتراضية (إنجليزي) */
   --font-heading: 'Sora', sans-serif;
   --font-body: 'Inter', sans-serif;
+}
+
+/* Global Animation for smooth between sections */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* عند تفعيل العربي: نبدّل الخطين لـ Tajawal بالكامل (عناوين + نصوص) */
+html[lang='ar'] {
+  --font-heading: 'Tajawal', sans-serif;
+  --font-body: 'Tajawal', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
 }
 
 /* فئات مخصصة لتطابق نصوص فيجما 100% */
 @layer utilities {
   .text-h1 {
     font-family: var(--font-heading);
-    font-size: 56px;
-    line-height: 64px;
+    font-size: clamp(2.25rem, 1.55rem + 3vw, 3.5rem);
+    line-height: 1.15;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
-  
+
   .text-h2 {
     font-family: var(--font-heading);
-    font-size: 36px;
-    line-height: 44px;
+    font-size: clamp(1.75rem, 1.45rem + 1.5vw, 2.25rem);
+    line-height: 1.22;
     font-weight: 700;
     letter-spacing: -0.01em;
   }
-  
+
   .text-h3 {
     font-family: var(--font-heading);
-    font-size: 24px;
-    line-height: 32px;
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+    line-height: 1.35;
     font-weight: 600;
   }
-  
+
   .text-body-large {
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 28px;
+    font-size: clamp(1rem, 0.92rem + 0.3vw, 1.125rem);
+    line-height: 1.6;
     font-weight: 400;
   }
-  
+
   .text-body-regular {
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
   }
-  
+
   .text-body-small {
     font-family: var(--font-body);
     font-size: 14px;
