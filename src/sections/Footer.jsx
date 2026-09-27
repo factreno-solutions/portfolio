@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.3fr_0.7fr_0.8fr_1fr] md:gap-x-10">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <img src={logo} alt="Factreno" className="mb-5 h-10" />
+            <img src={logo} alt="Factreno" className="mb-5 w-auto shrink-0 h-15 hover:scale-105 transition-all ease-in" />
             <p className="max-w-xs text-body-regular leading-7 text-text-muted">
               {t('footer.description')}
             </p>

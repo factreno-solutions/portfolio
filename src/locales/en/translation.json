@@ -5,7 +5,7 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "blog": "Blog",
-    "contact": "Fast Contact",
+    "contact": "your mail",
     "pageContact":"Contact"
   },
   "hero": {
@@ -76,18 +76,21 @@
     ],
     "projects": [
       {
+        "id": 1,
         "category": "Web",
         "title": "Nexa SaaS Portal",
         "description": "An architectural admin dashboard built for real-time edge telemetry and analytics monitoring.",
         "action": "Explore Case Study"
       },
       {
+        "id": 2,
         "category": "Mobile",
         "title": "Aura Meditation App",
         "description": "A clean iOS/Android app with minimalist interface and low-latency audio stream routines.",
         "action": "Explore Case Study"
       },
       {
+        "id": 3,
         "category": "Branding",
         "title": "Vortex Branding",
         "description": "Reconstructing the aesthetic guidelines and digital guidelines for a leading AI model studio.",

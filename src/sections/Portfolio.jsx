@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 export default function Portfolio() {
   const { t } = useTranslation();
   const filters = t('portfolio.filters', { returnObjects: true });
@@ -60,13 +60,13 @@ export default function Portfolio() {
                   <p className="mt-2 text-body-regular leading-7 text-text-muted">
                     {project.description}
                   </p>
-                  <a
-                    href="#"
-                    className="mt-4 inline-flex items-center gap-1.5 text-body-regular font-semibold text-primary-500 hover:text-primary-700"
-                  >
-                    {project.action}
-                    <ArrowRight size={16} className="rtl:-scale-x-100" aria-hidden="true" />
-                  </a>
+<Link
+  to={`/portfolio/${project.id}`}
+  className="mt-4 inline-flex items-center gap-1.5 text-body-regular font-semibold text-primary-500 hover:text-primary-700"
+>
+  {project.action}
+  <ArrowRight size={16} className="rtl:-scale-x-100" aria-hidden="true" />
+</Link>
                 </div>
               </div>
             ))}
