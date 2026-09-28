@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import AboutUs from "./sections/AboutUs";
@@ -9,11 +10,14 @@ import FreeConsultation from "./sections/FreeConsultation";
 import Blog from "./sections/Blog";
 import Footer from "./sections/Footer";
 import Contact from "./pages/Contact";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticleDetails from "./pages/ArticleDetails";
 import ProjectDetails from './pages/ProjectDetails';
 import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
+import Bobble from "./components/Bobbles";
+
+
+
 function App() {
   const { i18n } = useTranslation();
 
@@ -28,6 +32,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
+        <Bobble/>
 
         <main>
           <Routes>
