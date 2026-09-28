@@ -40,8 +40,8 @@ export default function Navbar() {
     { name: t('nav.services'), href: '/#services' },
     { name: t('nav.portfolio'), href: '/#portfolio' },
     { name: t('nav.blog'), href: '/#blog' },
-    { name: t('nav.contact'), href: '/#contact' },
     {name:  t('nav.pageContact'),href:"/contact"},
+    {name:  t('nav.projects'),href:"/projects"},
   ];
 
   // إعدادات حركة دخول النافبار عند فتح الموقع

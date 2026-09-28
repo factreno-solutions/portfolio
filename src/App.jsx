@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ArticleDetails from "./pages/ArticleDetails";
 import ProjectDetails from './pages/ProjectDetails';
+import Projects from "./pages/Projects";
+import Blogs from "./pages/Blogs";
 function App() {
   const { i18n } = useTranslation();
 
@@ -45,7 +47,9 @@ function App() {
             />
             <Route path="/blog/:id" element={<ArticleDetails />} />
             <Route path="/portfolio/:id" element={<ProjectDetails />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blogs" element={<Blogs />} />
           </Routes>
         </main>
 

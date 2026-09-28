@@ -5,8 +5,8 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "blog": "Blog",
-    "contact": "your mail",
-    "pageContact":"Contact"
+    "pageContact":"Contact",
+    "projects":"Projects"
   },
   "hero": {
     "badge": "Modern Software Studio",
@@ -115,6 +115,7 @@
     "title": "Insights From Our Engineering Desk",
     "description": "Practical write-ups from our engineering and design teams on what's shaping modern products.",
     "readMore": "Read Article",
+    "moreArticles": "More Articles",
     "articles": [
       {
         "id": 1,
@@ -164,5 +165,8 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© 2026 Factreno. All rights reserved."
+  },
+  "contact": {
+    "titele":"contact"
   }
 }

@@ -1,27 +1,29 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 export default function Portfolio() {
   const { t } = useTranslation();
-  const filters = t('portfolio.filters', { returnObjects: true });
-  const projects = t('portfolio.projects', { returnObjects: true });
+  const filters = t("portfolio.filters", { returnObjects: true });
+  const projects = t("portfolio.projects", { returnObjects: true });
   const [activeFilter, setActiveFilter] = useState(0);
 
   const visibleProjects =
     activeFilter === 0
       ? projects
-      : projects.filter((project) => project.category === filters[activeFilter]);
+      : projects.filter(
+          (project) => project.category === filters[activeFilter],
+        );
 
   return (
     <section id="portfolio" className="w-full px-4 py-16 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <span className="inline-flex items-center rounded-full bg-primary-50 px-4 py-1.5 text-body-small font-semibold text-primary-500">
-            {t('portfolio.badge')}
+            {t("portfolio.badge")}
           </span>
           <h2 className="mx-auto mt-4 max-w-2xl text-h2 text-primary-900">
-            {t('portfolio.title')}
+            {t("portfolio.title")}
           </h2>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -31,10 +33,11 @@ export default function Portfolio() {
                   key={filter}
                   type="button"
                   onClick={() => setActiveFilter(index)}
-                  className={`rounded-full border px-5 py-2 text-body-small font-semibold transition-colors ${activeFilter === index
-                    ? 'border-primary-500 bg-primary-500 text-white'
-                    : 'border-border bg-white text-primary-900 hover:border-primary-300'
-                    }`}
+                  className={`rounded-full border px-5 py-2 text-body-small font-semibold transition-colors ${
+                    activeFilter === index
+                      ? "border-primary-500 bg-primary-500 text-white"
+                      : "border-border bg-white text-primary-900 hover:border-primary-300"
+                  }`}
                 >
                   {filter}
                 </button>
@@ -56,21 +59,33 @@ export default function Portfolio() {
                   <span className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-body-small font-semibold text-primary-500">
                     {project.category}
                   </span>
-                  <h3 className="mt-3 text-h3 text-primary-900">{project.title}</h3>
+                  <h3 className="mt-3 text-h3 text-primary-900">
+                    {project.title}
+                  </h3>
                   <p className="mt-2 text-body-regular leading-7 text-text-muted">
                     {project.description}
                   </p>
-<Link
-  to={`/portfolio/${project.id}`}
-  className="mt-4 inline-flex items-center gap-1.5 text-body-regular font-semibold text-primary-500 hover:text-primary-700"
->
-  {project.action}
-  <ArrowRight size={16} className="rtl:-scale-x-100" aria-hidden="true" />
-</Link>
+                  <Link
+                    to={`/portfolio/${project.id}`}
+                    className="mt-4 inline-flex items-center gap-1.5 text-body-regular font-semibold text-primary-500 hover:text-primary-700"
+                  >
+                    {project.action}
+                    <ArrowRight
+                      size={16}
+                      className="rtl:-scale-x-100"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 </div>
               </div>
             ))}
         </div>
+        <Link
+        to="/projects"
+            className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-body-regular font-semibold text-white transition-colors hover:bg-primary-700 sm:w-auto"
+>
+          {t("portfolio.allProjects", "معرض المشاريع")}
+        </Link>
       </div>
     </section>
   );

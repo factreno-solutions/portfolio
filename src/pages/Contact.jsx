@@ -1,8 +1,11 @@
-import React from 'react'
-
+import { useTranslation } from "react-i18next";
 const Contact = () => {
+  const { t } = useTranslation();
   return (
-    <div className='text-white flex justify-center items-center h-screen bg-black'>Contact</div>
+    <>
+    <p>{t('contact.titele')}</p>
+
+    </>
   )
 }
 
