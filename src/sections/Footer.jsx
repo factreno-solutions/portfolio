@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { MessageCircle, User, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 import logo from '../assets/logo-removebg-preview.png';
 
 export default function Footer() {
@@ -13,8 +14,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contact" className="w-full border-t border-border bg-bg-secondary">
-      <div className="mx-auto max-w-6xl px-4 py-14 md:py-16">
+    <footer id="contact" className="w-full border-t border-border bg-bg-secondary overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="mx-auto max-w-6xl px-4 py-14 md:py-16"
+      >
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.3fr_0.7fr_0.8fr_1fr] md:gap-x-10">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
@@ -117,7 +124,7 @@ export default function Footer() {
             <a href="#" className="hover:text-primary-700">{t('footer.terms')}</a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
