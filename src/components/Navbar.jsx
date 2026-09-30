@@ -17,7 +17,6 @@ export default function Navbar() {
 
   const location = useLocation();
 
-  // مصفوفة الروابط
   const navLinks = [
     { name: t('nav.home'), href: '/#home' },
     { name: t('nav.about'), href: '/#about' },
