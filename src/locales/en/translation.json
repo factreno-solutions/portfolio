@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "pageContact":"Contact",
+    "projects":"Projects"
+  },
+  "hero": {
+    "badge": "Modern Software Studio",
+    "title": "We Build Digital Products That Matter",
+    "subtitle": "Factreno is a precision-driven software studio transforming bold visions into robust web systems, custom mobile solutions, and high-performance digital products.",
+    "primaryAction": "Talk About Project",
+    "secondaryAction": "View Case Studies",
+    "stat1Value": "70+ Projects",
+    "stat1Label": "Successfully Delivered",
+    "stat2Value": "98% Satisfaction",
+    "stat2Label": "Client Retention Rate"
+  },
+  "about": {
+    "badge": "Who We Are",
+    "title": "Delivering custom engineering with a minimal SaaS aesthetic.",
+    "description1": "At Factreno, we believe that software should be as intuitive as it is powerful. Our multidisciplinary team is dedicated to designing modular, highly scalable web and mobile platforms that eliminate operational friction and accelerate modern businesses.",
+    "points": [
+      "Pillars of performance-driven codebases",
+      "Beautiful, modern user interfaces designed to convert",
+      "Long-term partnership with proactive consulting"
+    ],
+    "button": "Learn More About Us"
+  },
+  "services": {
+    "badge": "Capabilities",
+    "title": "Engineered Services Built to Scale",
+    "items": [
+      {
+        "icon": "globe",
+        "title": "Web Development",
+        "description": "Interactive, high-performing web platforms engineered in React and modern cloud architectures."
+      },
+      {
+        "icon": "mobile",
+        "title": "Mobile Apps",
+        "description": "Cross-platform iOS and Android software with swift performance and polished native feel."
+      },
+      {
+        "icon": "palette",
+        "title": "UI/UX Design",
+        "description": "SaaS layout logic structured around minimal design principles, rich typography, and seamless flows."
+      },
+      {
+        "icon": "cloud",
+        "title": "Cloud Solutions",
+        "description": "Proactive microservices orchestration, serverless hosting strategies, and secure database frameworks."
+      },
+      {
+        "icon": "cpu",
+        "title": "AI Integration",
+        "description": "Augmenting software frameworks with context-aware smart LLM pipes and custom predictive modeling."
+      },
+      {
+        "icon": "pulse",
+        "title": "Digital Strategy",
+        "description": "Product roadmap analysis, operational planning, and deep market integration blueprints."
+      }
+    ],
+    "button": "See All Services"
+  },
+  "portfolio": {
+    "badge": "Portfolio",
+    "title": "Our Latest Engagements",
+    "filters": [
+      "All",
+      "Web",
+      "Mobile",
+      "Branding"
+    ],
+    "allProjects": "All Projects",
+    "projects": [
+      {
+        "id": 1,
+        "category": "Web",
+        "title": "Nexa SaaS Portal",
+        "description": "An architectural admin dashboard built for real-time edge telemetry and analytics monitoring.",
+        "action": "Explore Case Study"
+      },
+      {
+        "id": 2,
+        "category": "Mobile",
+        "title": "Aura Meditation App",
+        "description": "A clean iOS/Android app with minimalist interface and low-latency audio stream routines.",
+        "action": "Explore Case Study"
+      },
+      {
+        "id": 3,
+        "category": "Branding",
+        "title": "Vortex Branding",
+        "description": "Reconstructing the aesthetic guidelines and digital guidelines for a leading AI model studio.",
+        "action": "Explore Case Study"
+      }
+    ]
+  },
+  "freeConsultation": {
+    "eyebrow": "Free Discovery Session",
+    "title": "Let's Plan Your Digital Solution",
+    "description": "Select what you are looking to build and receive a detailed, custom architect blueprint and proposal.",
+    "options": [
+      "Portfolio",
+      "Website",
+      "App",
+      "System"
+    ],
+    "action": "Book Free 30-Min Consultation"
+  },
+  "blog": {
+    "eyebrow": "Knowledge Hub",
+    "title": "Insights From Our Engineering Desk",
+    "description": "Practical write-ups from our engineering and design teams on what's shaping modern products.",
+    "readMore": "Read Article",
+    "moreArticles": "More Articles",
+    "articles": [
+      {
+        "id": 1,
+        "category": "Design",
+        "title": "SaaS Design Trends in 2026",
+        "description": "Delving into visual minimalism, clean curves, and the utility of high contrast typography for SaaS.",
+        "date": "May 14, 2026"
+      },
+      {
+        "id": 2,
+        "category": "Engineering",
+        "title": "The Power of Edge Telemetry",
+        "description": "How micro-frontends and decentralized frameworks reduce operational lag in web products.",
+        "date": "May 08, 2026"
+      },
+      {
+        "id": 3,
+        "category": "AI",
+        "title": "Custom LLM Integrations",
+        "description": "A guide to building custom context pipelines without oversubscribing standard compute instances.",
+        "date": "April 29, 2026"
+      }
+    ]
+  },
+  "footer": {
+    "location": "Cairo, Egypt",
+    "description": "Factreno is a digital engineering agency specializing in structured, high performance platforms that drive operational utility.",
+    "navigate": "Navigate",
+    "servicesHeading": "Services",
+    "servicesList": [
+      "Web Apps",
+      "Mobile Apps",
+      "Custom UI/UX",
+      "Cloud Strategy"
+    ],
+    "aboutHeading": "About",
+    "aboutList": [
+      "About Us",
+      "Case Studies",
+      "Our Philosophy",
+      "Insights Blog"
+    ],
+    "quickContact": "Quick Contact",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Email Address",
+    "sendMessage": "Send Message",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2026 Factreno. All rights reserved."
+  },
+  "contact": {
+    "titele":"contact"
+  },
+  "contactPage": {
+  "title": "Let's build something awesome together",
+  "subtitle": "Whether you have a complete project idea or just an initial concept, we are here to turn it into reality. Fill out the form and our team will contact you shortly.",
+  "contactInfo": "Contact Information",
+  "email": "Email Address",
+  "phone": "Phone Number",
+  "address": "Address",
+  "addressValue": "Cairo, Egypt",
+  "form": {
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Hossam AbdElLatif",
+    "phoneLabel": "Phone Number (WhatsApp)",
+    "emailLabel": "Email Address",
+    "serviceLabel": "Project Type You Are Interested In",
+    "serviceDefault": "Select a service...",
+    "serviceOther": "Other Service",
+    "messageLabel": "Project Details",
+    "messagePlaceholder": "Tell us more about your idea, requirements, and any other details to help us understand your project...",
+    "submitBtn": "Send Consultation Request",
+    "successMessage": "Your message has been received successfully! We will contact you soon."
+  }
+}
+}
