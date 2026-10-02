@@ -2,7 +2,7 @@ import { Mail, Lock } from "lucide-react";
 
 export default function Bobble() {
   return (
-    <main className="hidden md:fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <main className="hidden md:block fixed inset-0 z-0 overflow-hidden pointer-events-none">
       {/* Vivid Amber / Orange Blob (Matches your Hire Me & Showcase buttons) */}
       <div
         className="absolute -top-10 -left-10 h-[500px] w-[500px] animate-blob bg-[var(--header-bg)] from-amber-400 via-orange-500 to-amber-600 opacity-30 blur-2xl"
