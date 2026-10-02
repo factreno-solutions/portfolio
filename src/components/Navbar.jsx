@@ -20,6 +20,7 @@ export default function Navbar() {
   const navGroups = [
     {
       name: t('nav.home'),
+      href: '/',
       items: [
         { name: t('nav.about'), href: '/about-us' },
         { name: t('nav.projects'), href: '/projects' },
@@ -27,12 +28,14 @@ export default function Navbar() {
     },
     {
       name: t('nav.services'),
+      href: '/services',
       items: [{ name: t('nav.portfolio'), href: '/projects' }],
     },
     { name: t('nav.blog'), href: '/blogs' },
     {
       name: t('nav.pageContact'),
-      items: [{ name: t('nav.contactForm'), href: '/contact' }],
+      href: '/contact',
+      items: [{ name: t('nav.contactForm'), href: '/#contact' }],
     },
   ];
 
@@ -159,16 +162,20 @@ export default function Navbar() {
 
               return (
                 <motion.div key={index} variants={itemVariants} className="group relative" whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }}>
-                  {hasDropdown ? (
-                    <button type="button" className={`flex items-center gap-1 text-sm transition-colors hover:text-primary-500 ${isActive ? 'font-bold text-primary-500' : 'font-medium text-text-dark'}`}>
-                      {group.name}
-                      <ChevronDown size={14} aria-hidden="true" />
-                    </button>
-                  ) : (
+                  <div className="flex items-center gap-1">
                     <Link to={group.href} onClick={() => setIsOpen(false)} className={`text-sm transition-colors hover:text-primary-500 ${isActive ? 'font-bold text-primary-500' : 'font-medium text-text-dark'}`}>
                       {group.name}
                     </Link>
-                  )}
+                    {hasDropdown && (
+                      <button
+                        type="button"
+                        aria-label={`${group.name} submenu`}
+                        className="rounded-full p-1 text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500"
+                      >
+                        <ChevronDown size={14} aria-hidden="true" />
+                      </button>
+                    )}
+                  </div>
                   {hasDropdown && (
                     <div className="invisible absolute start-0 top-full z-20 min-w-40 translate-y-2 rounded-xl border border-bg-secondary bg-bg-primary p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                       {group.items.map((item) => (
@@ -234,24 +241,28 @@ export default function Navbar() {
 
                 return (
                   <motion.div key={index} variants={mobileItemVariants} className="flex flex-col gap-1">
-                    {hasDropdown ? (
-                      <>
-                        <div className={`flex items-center gap-1 rounded-lg px-3 py-2.5 text-sm ${isActive ? 'font-bold text-primary-500 bg-primary-50' : 'font-medium text-text-dark'}`}>
-                          {group.name}
-                          <ChevronDown size={14} aria-hidden="true" />
-                        </div>
-                        <div className="ms-3 flex flex-col gap-1 border-s-2 border-primary-100 ps-2">
-                          {group.items.map((item) => (
-                            <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="rounded-lg px-3 py-2 text-sm font-medium text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500">
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </>
-                    ) : (
-                      <Link to={group.href} onClick={() => setIsOpen(false)} className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-primary-50 hover:text-primary-500 ${isActive ? 'font-bold text-primary-500 bg-primary-50' : 'font-medium text-text-dark'}`}>
+                    <div className="flex items-center gap-1">
+                      <Link to={group.href} onClick={() => setIsOpen(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-primary-50 hover:text-primary-500 ${isActive ? 'font-bold text-primary-500 bg-primary-50' : 'font-medium text-text-dark'}`}>
                         {group.name}
                       </Link>
+                      {hasDropdown && (
+                        <button
+                          type="button"
+                          aria-label={`${group.name} submenu`}
+                          className="rounded-lg p-2.5 text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500"
+                        >
+                          <ChevronDown size={14} aria-hidden="true" />
+                        </button>
+                      )}
+                    </div>
+                    {hasDropdown && (
+                      <div className="ms-3 flex flex-col gap-1 border-s-2 border-primary-100 ps-2">
+                        {group.items.map((item) => (
+                          <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="rounded-lg px-3 py-2 text-sm font-medium text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500">
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     )}
                   </motion.div>
                 );
