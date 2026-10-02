@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { MessageCircle, User, Mail } from 'lucide-react';
+import { BriefcaseBusiness, Camera, Globe2, Mail, MessageCircle, Music2, Phone, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo-removebg-preview.png';
@@ -11,7 +11,12 @@ export default function Footer() {
   const aboutList = t('footer.aboutList', { returnObjects: true });
 
   const socials = [
-    { icon: MessageCircle, label: 'Message', href: '#' },
+    { icon: Globe2, label: 'Facebook', href: '#' },
+    { icon: Camera, label: 'Instagram', href: '#' },
+    { icon: BriefcaseBusiness, label: 'LinkedIn', href: '#' },
+    { icon: Music2, label: 'TikTok', href: '#' },
+    { icon: MessageCircle, label: 'WhatsApp', href: '#' },
+    { icon: Phone, label: 'Call', href: 'tel:+201000000000' },
   ];
 
   return (

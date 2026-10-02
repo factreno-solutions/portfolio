@@ -139,17 +139,16 @@
     "navigate": "Navigate",
     "servicesHeading": "Services",
     "servicesList": [
-      "Web Apps",
-      "Mobile Apps",
-      "Custom UI/UX",
-      "Cloud Strategy"
+      "Website",
+      "Web Application",
+      "Applications",
+      "Systems"
     ],
     "aboutHeading": "About",
     "aboutList": [
-      "About Us",
-      "Case Studies",
-      "Our Philosophy",
-      "Insights Blog"
+      "Our Projects",
+      "Articles",
+      "Contact Us"
     ],
     "quickContact": "Quick Contact",
     "namePlaceholder": "Your Name",
