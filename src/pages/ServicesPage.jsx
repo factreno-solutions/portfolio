@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Globe, Smartphone, Palette, Cloud, Cpu, Activity, Search } from "lucide-react";
 import { motion } from "framer-motion";
 
