@@ -17,6 +17,8 @@ import Blogs from "./pages/Blogs";
 import Bobble from "./components/Bobbles";
 import AboutUsPage from "./pages/AboutUsPage";
 import ServicesPage from "./pages/ServicesPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 
 function App() {
@@ -58,6 +60,8 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </main>
 

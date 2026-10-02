@@ -14,6 +14,9 @@
     "subtitle": "Factreno is a precision-driven software studio transforming bold visions into robust web systems, custom mobile solutions, and high-performance digital products.",
     "primaryAction": "Talk About Project",
     "secondaryAction": "View Case Studies",
+    "searchLabel": "Search for a service",
+    "searchPlaceholder": "What service do you need?",
+    "searchAction": "Search",
     "stat1Value": "70+ Projects",
     "stat1Label": "Successfully Delivered",
     "stat2Value": "98% Satisfaction",
@@ -168,6 +171,18 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© 2026 Factreno. All rights reserved."
+  },
+  "legal": {
+    "privacyTitle": "Privacy Policy",
+    "privacyIntro": "We respect your privacy and are committed to protecting the information you share with us.",
+    "dataTitle": "Information we collect",
+    "dataText": "We use the information needed to communicate with you, provide our services, and improve your experience. We do not sell your data.",
+    "termsTitle": "Terms of Service",
+    "termsIntro": "By using our website, you agree to these terms and to use our services lawfully and responsibly.",
+    "useTitle": "Acceptable use",
+    "useText": "Users must provide accurate information, respect intellectual property, and must not misuse the website or its services.",
+    "contactTitle": "Contact us",
+    "contactText": "For questions about privacy or these terms, contact the Factreno team through the available contact channels."
   },
   "contact": {
     "titele":"contact"
