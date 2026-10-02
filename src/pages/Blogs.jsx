@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export default function Blogs() {
   const { t } = useTranslation();
   const articles = t("blog.articles", { returnObjects: true });
+  const [query, setQuery] = useState("");
+  const filteredArticles = Array.isArray(articles) ? articles.filter((article) => `${article.title} ${article.description} ${article.category}`.toLowerCase().includes(query.toLowerCase())) : [];
 
   // تمرير الشاشة للأعلى عند فتح الصفحة
   useEffect(() => {
@@ -26,10 +28,14 @@ export default function Blogs() {
           </p>
         </div>
 
+        <div className="mx-auto mb-8 max-w-xl">
+          <label htmlFor="article-search" className="sr-only">{t("blog.search", "ابحث في المقالات")}</label>
+          <input id="article-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("blog.search", "ابحث في المقالات")} className="w-full rounded-xl border border-primary-100 bg-background px-4 py-3 text-body-regular outline-none focus:border-primary-500" />
+        </div>
+
         {/* شبكة عرض كل المقالات */}
         <div className="grid gap-6 md:grid-cols-3">
-          {Array.isArray(articles) &&
-            articles.map((article, index) => (
+          {filteredArticles.map((article, index) => (
               <article
                 key={index}
                 className="overflow-hidden rounded-2xl bg-bg-secondary shadow-[0_4px_12px_rgba(30,41,59,0.07)] transition-transform duration-300 hover:-translate-y-1"

@@ -86,6 +86,7 @@ export default function ServicesPage() {
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 className="rounded-[16px] bg-white p-6 shadow-[0_4px_12px_rgba(30,41,59,0.07)] transition-shadow hover:shadow-[0_8px_24px_rgba(30,41,59,0.12)]"
               >
+                <Link to={`/services/${service.slug}`} className="block" aria-label={`${service.title} details`}>
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-50 text-primary-500">
                   {ICONS[service.icon]}
                 </div>
@@ -93,6 +94,7 @@ export default function ServicesPage() {
                 <p className="mt-2 text-body-regular leading-7 text-text-muted">
                   {service.description}
                 </p>
+                </Link>
               </motion.div>
             ))}
         </div>

@@ -37,38 +37,24 @@
     "badge": "Capabilities",
     "title": "Engineered Services Built to Scale",
     "items": [
-      {
-        "icon": "globe",
-        "title": "Web Development",
-        "description": "Interactive, high-performing web platforms engineered in React and modern cloud architectures."
-      },
-      {
-        "icon": "mobile",
-        "title": "Mobile Apps",
-        "description": "Cross-platform iOS and Android software with swift performance and polished native feel."
-      },
-      {
-        "icon": "palette",
-        "title": "UI/UX Design",
-        "description": "SaaS layout logic structured around minimal design principles, rich typography, and seamless flows."
-      },
-      {
-        "icon": "cloud",
-        "title": "Cloud Solutions",
-        "description": "Proactive microservices orchestration, serverless hosting strategies, and secure database frameworks."
-      },
-      {
-        "icon": "cpu",
-        "title": "AI Integration",
-        "description": "Augmenting software frameworks with context-aware smart LLM pipes and custom predictive modeling."
-      },
-      {
-        "icon": "pulse",
-        "title": "Digital Strategy",
-        "description": "Product roadmap analysis, operational planning, and deep market integration blueprints."
-      }
+      { "slug": "website", "icon": "globe", "title": "Website", "description": "Fast, responsive websites that make your brand clear and memorable.", "details": "We design and build conversion-focused websites with strong content structure, responsive layouts, and reliable performance.", "highlights": ["Responsive and accessible layouts", "SEO-ready structure", "Fast, maintainable front end"] },
+      { "slug": "static-landing-page", "icon": "globe", "title": "Static Landing Page", "description": "Focused landing pages built to communicate value and drive action.", "details": "Launch a polished campaign or product page with a clear message, persuasive sections, and a frictionless call to action.", "highlights": ["High-converting page structure", "Mobile-first experience", "Easy content handoff"] },
+      { "slug": "web-application", "icon": "cloud", "title": "Web Application", "description": "Secure, scalable web applications for ambitious products and teams.", "details": "From dashboards to customer portals, we engineer dependable web applications around your workflows and users.", "highlights": ["Scalable architecture", "Role-based experiences", "Reliable integrations"] },
+      { "slug": "payment-gateway", "icon": "pulse", "title": "Payment Gateway", "description": "Smooth payment experiences connected to the tools your business needs.", "details": "We build payment flows that prioritize trust, clear states, secure integrations, and a seamless customer checkout experience.", "highlights": ["Secure provider integrations", "Clear payment states", "Order and transaction workflows"] },
+      { "slug": "database-system", "icon": "cloud", "title": "Big Database and System", "description": "Robust data foundations for high-volume products and operations.", "details": "Design dependable databases and system foundations that keep data organized, queryable, secure, and ready to grow.", "highlights": ["Structured data modeling", "Performance-minded queries", "Reliable system foundations"] },
+      { "slug": "users-crm", "icon": "pulse", "title": "Users CRM", "description": "Customer relationship systems that give teams a clear view of every interaction.", "details": "Centralize contacts, conversations, pipelines, and follow-ups in a CRM shaped around the way your team works.", "highlights": ["Contact and lead management", "Custom team workflows", "Actionable customer history"] },
+      { "slug": "pos", "icon": "cloud", "title": "POS", "description": "Point-of-sale systems that make daily operations faster and clearer.", "details": "Connect sales, products, inventory, and reporting in a practical POS experience for growing businesses.", "highlights": ["Fast transaction flow", "Inventory visibility", "Sales reporting"] },
+      { "slug": "erp", "icon": "cpu", "title": "ERP", "description": "Connected business operations in one focused platform.", "details": "Bring core business processes together with an ERP system that improves visibility, coordination, and decision-making.", "highlights": ["Connected business modules", "Role-based access", "Operational reporting"] },
+      { "slug": "rag-systems", "icon": "cpu", "title": "RAG Systems", "description": "Knowledge-aware AI systems grounded in your trusted information.", "details": "Build retrieval-augmented generation experiences that help teams find answers from internal documents and business knowledge.", "highlights": ["Grounded answers", "Document retrieval", "Knowledge-base workflows"] },
+      { "slug": "chatbots", "icon": "cpu", "title": "Chatbots", "description": "Helpful conversational assistants for customers and internal teams.", "details": "Create practical chatbots that answer questions, guide users, and connect conversations to your existing workflows.", "highlights": ["Natural conversations", "Business workflow actions", "Human handoff paths"] },
+      { "slug": "app-store-display", "icon": "mobile", "title": "Application Display at App Store and Android", "description": "Mobile applications prepared for a clear, credible store presence.", "details": "We help shape and deliver mobile application experiences for iOS and Android, from product presentation to release-ready quality.", "highlights": ["iOS and Android experiences", "Store-ready presentation", "Release quality review"] },
+      { "slug": "coaching", "icon": "pulse", "title": "Coaching", "description": "Practical technical guidance for teams, products, and founders.", "details": "Get focused coaching to make better product, engineering, and delivery decisions with an experienced technical partner.", "highlights": ["Product direction", "Technical decision support", "Team enablement"] },
+      { "slug": "career-startup-plans", "icon": "pulse", "title": "Career or Startup Plans", "description": "Clear plans for your next career move or startup milestone.", "details": "Turn an idea or career goal into a practical roadmap with priorities, milestones, and an honest view of the path ahead.", "highlights": ["Actionable roadmap", "Priority setting", "Startup and career guidance"] }
     ],
-    "button": "See All Services"
+    "button": "See All Services",
+    "backToServices": "Back to Services",
+    "startProject": "Start Your Project",
+    "notFound": "Service not found"
   },
   "portfolio": {
     "badge": "Portfolio",
