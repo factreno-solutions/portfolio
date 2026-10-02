@@ -5,8 +5,9 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "blog": "Blog",
-    "pageContact":"Contact",
-    "projects":"Projects"
+  "pageContact":"Contact",
+  "contactForm":"Contact form",
+  "projects":"Projects"
   },
   "hero": {
     "badge": "Modern Software Studio",
