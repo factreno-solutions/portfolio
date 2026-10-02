@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
@@ -6,6 +6,8 @@ import { ArrowRight } from "lucide-react";
 export default function Projects() {
   const { t } = useTranslation();
   const projects = t("portfolio.projects", { returnObjects: true });
+  const [query, setQuery] = useState("");
+  const filteredProjects = Array.isArray(projects) ? projects.filter((project) => `${project.title} ${project.category}`.toLowerCase().includes(query.toLowerCase())) : [];
 
   // تمرير الشاشة للأعلى عند فتح الصفحة
   useEffect(() => {
@@ -29,9 +31,14 @@ export default function Projects() {
           </p>
         </div>
 
+        <div className="mx-auto mb-8 max-w-xl">
+          <label htmlFor="project-search" className="sr-only">{t("portfolio.search", "ابحث في المشاريع")}</label>
+          <input id="project-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("portfolio.search", "ابحث في المشاريع")} className="w-full rounded-xl border border-primary-100 bg-background px-4 py-3 text-body-regular outline-none focus:border-primary-500" />
+        </div>
+
         {/* شبكة المشاريع */}
         <div className="grid gap-6 md:grid-cols-3">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={index}
               className="overflow-hidden rounded-2xl bg-bg-secondary shadow-[0_4px_12px_rgba(30,41,59,0.07)] transition-transform duration-300 hover:-translate-y-1"

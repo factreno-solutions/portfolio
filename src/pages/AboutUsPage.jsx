@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import IllustrationAboutUs from "../assets/Illustration-about.jpg";
 import WeImage from "../assets/we.jpg";
+import TeamDirectory from "../components/TeamDirectory";
 export default function AboutUsPage() {
   const { t } = useTranslation();
   const points = t("about.points", { returnObjects: true });
@@ -94,6 +95,7 @@ export default function AboutUsPage() {
               <img src={WeImage} alt="We" className=" hover:scale-105" />
             
         </div>
+        <TeamDirectory />
         </>
   );
 }

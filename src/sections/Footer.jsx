@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { MessageCircle, User, Mail } from 'lucide-react';
+import { BriefcaseBusiness, Camera, Globe2, Mail, MessageCircle, Music2, Phone, User } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/logo-removebg-preview.png';
 
@@ -10,7 +11,12 @@ export default function Footer() {
   const aboutList = t('footer.aboutList', { returnObjects: true });
 
   const socials = [
-    { icon: MessageCircle, label: 'Message', href: '#' },
+    { icon: Globe2, label: 'Facebook', href: '#' },
+    { icon: Camera, label: 'Instagram', href: '#' },
+    { icon: BriefcaseBusiness, label: 'LinkedIn', href: '#' },
+    { icon: Music2, label: 'TikTok', href: '#' },
+    { icon: MessageCircle, label: 'WhatsApp', href: '#' },
+    { icon: Phone, label: 'Call', href: 'tel:+201000000000' },
   ];
 
   return (
@@ -25,7 +31,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.3fr_0.7fr_0.8fr_1fr] md:gap-x-10">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <img src={logo} alt="Factreno" className="mb-5 w-auto shrink-0 h-15 hover:scale-105 transition-all ease-in" />
+            <Link to="/" aria-label="Factreno home" className="inline-flex">
+              <img src={logo} alt="Factreno" className="mb-5 w-auto shrink-0 h-15 hover:scale-105 transition-all ease-in" />
+            </Link>
             <p className="max-w-xs text-body-regular leading-7 text-text-muted">
               {t('footer.description')}
             </p>
@@ -52,9 +60,9 @@ export default function Footer() {
               {Array.isArray(servicesList) &&
                 servicesList.map((item) => (
                   <li key={item}>
-                    <a href="#services" className="transition-colors hover:text-primary-700">
+                    <Link to="/services" className="transition-colors hover:text-primary-700">
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ul>
@@ -69,9 +77,9 @@ export default function Footer() {
               {Array.isArray(aboutList) &&
                 aboutList.map((item) => (
                   <li key={item}>
-                    <a href="#about" className="transition-colors hover:text-primary-700">
+                    <Link to="/about-us" className="transition-colors hover:text-primary-700">
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ul>
@@ -120,8 +128,8 @@ export default function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-body-small text-text-muted md:flex-row md:items-center md:justify-between">
           <p>{t('footer.copyright')}</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-primary-700">{t('footer.privacy')}</a>
-            <a href="#" className="hover:text-primary-700">{t('footer.terms')}</a>
+            <Link to="/privacy-policy" className="hover:text-primary-700">{t('footer.privacy')}</Link>
+            <Link to="/terms-of-service" className="hover:text-primary-700">{t('footer.terms')}</Link>
           </div>
         </div>
       </motion.div>

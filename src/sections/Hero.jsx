@@ -1,10 +1,19 @@
 import { useTranslation } from "react-i18next";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import heroIllustration from "../assets/3d-character-hero.jpg";
 
 export default function Hero() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+
+  const handleServiceSearch = (event) => {
+    event.preventDefault();
+    navigate(`/services${query.trim() ? `?search=${encodeURIComponent(query.trim())}` : ""}`);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -59,34 +68,29 @@ export default function Hero() {
             {t("hero.subtitle")}
           </motion.p>
 
-          <motion.div
+          <motion.form
             variants={itemVariants}
-            className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-            <motion.a
-              href="#free-consultation"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-body-regular font-semibold text-white transition-colors hover:bg-primary-700 sm:w-auto">
-              {t("hero.primaryAction")}
-              <ArrowRight
-                size={18}
-                className="rtl:-scale-x-100"
-                aria-hidden="true"
-              />
-            </motion.a>
-            <motion.a
-              href="#portfolio"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary-50 px-6 py-3.5 text-body-regular font-semibold text-primary-900 transition-colors hover:bg-primary-100 sm:w-auto">
-              {t("hero.secondaryAction")}
-              <ArrowRight
-                size={18}
-                className="rtl:-scale-x-100"
-                aria-hidden="true"
-              />
-            </motion.a>
-          </motion.div>
+            onSubmit={handleServiceSearch}
+            className="mt-8 flex max-w-xl items-center gap-2 rounded-full border border-primary-100 bg-white p-2 shadow-sm"
+          >
+            <Search className="ms-3 shrink-0 text-primary-500" aria-hidden="true" />
+            <label htmlFor="hero-service-search" className="sr-only">
+              {t("hero.searchLabel")}
+            </label>
+            <input
+              id="hero-service-search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={t("hero.searchPlaceholder")}
+              className="min-w-0 flex-1 bg-transparent px-2 py-2 text-body-regular text-text-dark outline-none placeholder:text-text-muted"
+            />
+            <button
+              type="submit"
+              className="shrink-0 rounded-full bg-primary-500 px-5 py-3 text-body-small font-semibold text-white transition-colors hover:bg-primary-700"
+            >
+              {t("hero.searchAction")}
+            </button>
+          </motion.form>
         </motion.div>
 
         {/* Right column: illustration */}

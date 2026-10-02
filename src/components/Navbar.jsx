@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/Logo-Factreno.svg';
 import { Link, useLocation } from 'react-router-dom';
@@ -17,14 +17,26 @@ export default function Navbar() {
 
   const location = useLocation();
 
-  const navLinks = [
-    { name: t('nav.home'), href: '/#home' },
-    { name: t('nav.about'), href: '/#about' },
-    { name: t('nav.services'), href: '/#services' },
-    { name: t('nav.portfolio'), href: '/#portfolio' },
-    { name: t('nav.blog'), href: '/#blog' },
-    { name: t('nav.pageContact'), href: '/contact' },
-    { name: t('nav.projects'), href: '/projects' },
+  const navGroups = [
+    {
+      name: t('nav.home'),
+      href: '/',
+      items: [
+        { name: t('nav.about'), href: '/about-us' },
+        { name: t('nav.projects'), href: '/projects' },
+      ],
+    },
+    {
+      name: t('nav.services'),
+      href: '/services',
+      items: [{ name: t('nav.portfolio'), href: '/projects' }],
+    },
+    { name: t('nav.blog'), href: '/blogs' },
+    {
+      name: t('nav.pageContact'),
+      href: '/contact',
+      items: [{ name: t('nav.contactForm'), href: '/#contact' }],
+    },
   ];
 
   // (1) الانتقال للسيكشن بناءً على الرابط
@@ -142,31 +154,37 @@ export default function Navbar() {
 
           {/* روابط التنقل (تختفي في الشاشات الصغيرة) */}
           <div className="hidden items-center gap-6 md:flex">
-            {navLinks.map((link, index) => {
-              const isHashLink = link.href.startsWith('/#');
-              const hash = isHashLink ? link.href.replace('/#', '') : '';
-
-              // تحديد هل الرابط نشط أم لا
-              let isActive = false;
-              if (isHashLink) {
-                // للروابط داخل الصفحة الرئيسية (حسب السكرول)
-                isActive = location.pathname === '/' && activeSection === hash;
-              } else {
-                // للصفحات الأخرى مثل (اتصل بنا)
-                isActive = location.pathname === link.href;
-              }
+            {navGroups.map((group, index) => {
+              const hasDropdown = Boolean(group.items);
+              const isActive = hasDropdown
+                ? group.items.some((item) => location.pathname === item.href)
+                : location.pathname === group.href || (group.href === '/blogs' && location.pathname.startsWith('/blog'));
 
               return (
-                <motion.div key={index} variants={itemVariants} whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }}>
-                  <Link
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-sm transition-colors hover:text-primary-500 ${
-                      isActive ? 'font-bold text-primary-500' : 'font-medium text-text-dark'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
+                <motion.div key={index} variants={itemVariants} className="group relative" whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }}>
+                  <div className="flex items-center gap-1">
+                    <Link to={group.href} onClick={() => setIsOpen(false)} className={`text-sm transition-colors hover:text-primary-500 ${isActive ? 'font-bold text-primary-500' : 'font-medium text-text-dark'}`}>
+                      {group.name}
+                    </Link>
+                    {hasDropdown && (
+                      <button
+                        type="button"
+                        aria-label={`${group.name} submenu`}
+                        className="rounded-full p-1 text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500"
+                      >
+                        <ChevronDown size={14} aria-hidden="true" />
+                      </button>
+                    )}
+                  </div>
+                  {hasDropdown && (
+                    <div className="invisible absolute start-0 top-full z-20 min-w-40 translate-y-2 rounded-xl border border-bg-secondary bg-bg-primary p-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                      {group.items.map((item) => (
+                        <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="block whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500">
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               );
             })}
@@ -215,28 +233,37 @@ export default function Navbar() {
               variants={mobileMenuVariants}
               className="mt-2 flex flex-col gap-1 overflow-hidden rounded-2xl border border-bg-secondary bg-bg-primary p-4 shadow-sm md:hidden"
             >
-              {navLinks.map((link, index) => {
-                const isHashLink = link.href.startsWith('/#');
-                const hash = isHashLink ? link.href.replace('/#', '') : '';
-
-                let isActive = false;
-                if (isHashLink) {
-                  isActive = location.pathname === '/' && activeSection === hash;
-                } else {
-                  isActive = location.pathname === link.href;
-                }
+              {navGroups.map((group, index) => {
+                const hasDropdown = Boolean(group.items);
+                const isActive = hasDropdown
+                  ? group.items.some((item) => location.pathname === item.href)
+                  : location.pathname === group.href || (group.href === '/blogs' && location.pathname.startsWith('/blog'));
 
                 return (
-                  <motion.div key={index} variants={mobileItemVariants}>
-                    <Link
-                      to={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-primary-50 hover:text-primary-500 ${
-                        isActive ? 'font-bold text-primary-500 bg-primary-50' : 'font-medium text-text-dark'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+                  <motion.div key={index} variants={mobileItemVariants} className="flex flex-col gap-1">
+                    <div className="flex items-center gap-1">
+                      <Link to={group.href} onClick={() => setIsOpen(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-primary-50 hover:text-primary-500 ${isActive ? 'font-bold text-primary-500 bg-primary-50' : 'font-medium text-text-dark'}`}>
+                        {group.name}
+                      </Link>
+                      {hasDropdown && (
+                        <button
+                          type="button"
+                          aria-label={`${group.name} submenu`}
+                          className="rounded-lg p-2.5 text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500"
+                        >
+                          <ChevronDown size={14} aria-hidden="true" />
+                        </button>
+                      )}
+                    </div>
+                    {hasDropdown && (
+                      <div className="ms-3 flex flex-col gap-1 border-s-2 border-primary-100 ps-2">
+                        {group.items.map((item) => (
+                          <Link key={item.href} to={item.href} onClick={() => setIsOpen(false)} className="rounded-lg px-3 py-2 text-sm font-medium text-text-dark transition-colors hover:bg-primary-50 hover:text-primary-500">
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}

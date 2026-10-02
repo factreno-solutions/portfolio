@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import AboutUs from "./sections/AboutUs";
+import PartnersTestimonials from "./sections/PartnersTestimonials";
 import Services from "./sections/Services";
 import Portfolio from "./sections/Portfolio";
 import FreeConsultation from "./sections/FreeConsultation";
@@ -17,6 +18,9 @@ import Blogs from "./pages/Blogs";
 import Bobble from "./components/Bobbles";
 import AboutUsPage from "./pages/AboutUsPage";
 import ServicesPage from "./pages/ServicesPage";
+import ServiceDetails from "./pages/ServiceDetails";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 
 function App() {
@@ -43,6 +47,7 @@ function App() {
               element={
                 <>
                   <Hero />
+                  <PartnersTestimonials />
                   <AboutUs />
                   <Services />
                   <Portfolio />
@@ -58,6 +63,9 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetails />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </main>
 
